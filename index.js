@@ -1,6 +1,5 @@
 require('dotenv').config();
 const express = require('express');
-const mongoose = require('mongoose');
 const cors = require('cors');
 
 const websockets = require('./libs/websockets');
@@ -9,19 +8,6 @@ const app = express();
 const port = process.env.PORT;
 const www = './www';
 
-// Connecting to MONGODB
-const optionsDB = {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true,
-    "auth": {"authSource": process.env.DB_AUTH},
-    "user": process.env.DB_USER,
-    "pass": process.env.DB_PASS
-}
-
-mongoose.connect(process.env.DB_URL, optionsDB)
-  .then(() => console.log(process.env.DB_USER + ' connected to MongoDB!'))
-  .catch(err=> console.error(err));
 
 // Handling websockets
 

@@ -21,7 +21,7 @@ router.post('/auth', async (req, res)=> {
 });
 
 // sample get request
-router.get("/", ()=>{
+router.get("/", (req, res)=>{
     return res.send("Works!");
 });
 
